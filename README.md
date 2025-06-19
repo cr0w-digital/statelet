@@ -94,6 +94,33 @@ function SearchForm() {
 }
 ```
 
+## 🚀 Try the Live Demo
+
+Want to see statelet in action? Check out the interactive demo with a todo app, validation forms, and URL synchronization:
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd statelet
+
+# Install dependencies
+npm install
+
+# Start the demo
+cd examples
+npm install
+npm run dev
+```
+
+Then open [http://localhost:5173](http://localhost:5173) to see:
+
+- **Todo App** with localStorage persistence and URL filtering
+- **Validation Demo** with Standard Schema (Valibot) integration
+- **Search Filters** with hash parameter synchronization
+- **Real-time updates** and hot reloading
+
+The demo showcases all major features: state composition, URL sync, localStorage, validation, and React integration.
+
 ## Core API
 
 ### `state(initial)`
