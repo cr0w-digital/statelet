@@ -1,6 +1,6 @@
 {
   "name": "statelet",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Dead simple state management built on kvkit - composable, reactive, shareable. Supports Standard Schema (Valibot, Zod, ArkType).",
   "main": "./dist/index.js",

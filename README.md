@@ -159,7 +159,7 @@ Want to see statelet in action? Check out the interactive demo with a todo app, 
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/cr0w-digital/statelet
 cd statelet
 
 # Install dependencies
