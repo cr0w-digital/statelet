@@ -1,0 +1,66 @@
+{
+  "name": "statelet",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Dead simple state management built on kvkit - composable, reactive, shareable. Supports Standard Schema (Valibot, Zod, ArkType).",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@kvkit/codecs": "^0.2.0",
+    "@kvkit/query": "^0.2.0"
+  },
+  "peerDependencies": {
+    "@kvkit/react": "^0.2.0",
+    "react": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@kvkit/react": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.0",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.5.0",
+    "valibot": "^1.1.0",
+    "vitest": "^2.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "state",
+    "state-management",
+    "url-sync",
+    "localStorage",
+    "validation",
+    "standard-schema",
+    "valibot",
+    "zod",
+    "arktype",
+    "react",
+    "kvkit",
+    "composable"
+  ]
+}
