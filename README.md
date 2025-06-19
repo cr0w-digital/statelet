@@ -94,6 +94,65 @@ function SearchForm() {
 }
 ```
 
+### Performance with Selectors
+
+For better performance when you only need part of the state, use selectors to prevent unnecessary re-renders:
+
+```typescript
+// Only re-render when query changes, not page/filters
+function SearchInput() {
+  const [query, setSearch] = useStatelet(searchState, state => state.query);
+  
+  return (
+    <input 
+      value={query}
+      onChange={e => setSearch(prev => ({ 
+        ...prev, 
+        query: e.target.value,
+        page: 1 
+      }))}
+    />
+  );
+}
+
+// Only re-render when page changes
+function Pagination() {
+  const [page, setSearch] = useStatelet(searchState, state => state.page);
+  
+  return (
+    <div>
+      <button onClick={() => setSearch(prev => ({ ...prev, page: prev.page - 1 }))}>
+        Previous
+      </button>
+      <span>Page {page}</span>
+      <button onClick={() => setSearch(prev => ({ ...prev, page: prev.page + 1 }))}>
+        Next
+      </button>
+    </div>
+  );
+}
+
+// Complex selectors with multiple fields
+function SearchSummary() {
+  const [summary, setSearch] = useStatelet(searchState, state => ({
+    hasQuery: state.query.length > 0,
+    isFirstPage: state.page === 1,
+    searchParams: `${state.query} in ${state.category}`
+  }));
+  
+  return (
+    <div>
+      {summary.hasQuery && (
+        <p>Searching for: {summary.searchParams}</p>
+      )}
+      {!summary.isFirstPage && (
+        <p>Page {searchState.get().page}</p>
+      )}
+    </div>
+  );
+}
+```
+
 ## 🚀 Try the Demo
 
 Want to see statelet in action? Check out the interactive demo with a todo app, validation forms, and URL synchronization:
