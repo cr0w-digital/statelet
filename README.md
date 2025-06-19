@@ -94,7 +94,7 @@ function SearchForm() {
 }
 ```
 
-## 🚀 Try the Live Demo
+## 🚀 Try the Demo
 
 Want to see statelet in action? Check out the interactive demo with a todo app, validation forms, and URL synchronization:
 
