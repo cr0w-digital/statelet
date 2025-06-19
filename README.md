@@ -5,7 +5,7 @@
 ## Why statelet?
 
 | Feature                | Description                                       |
-|----------------------------------------------------------------------------|
+|------------------------|---------------------------------------------------|
 | **Dead Simple**.       | Just `{ get(), set(), subscribe() }` - that's it! |
 | **Composable**         | Mix and match enhancers like Lego blocks          |  
 | **URL Sync Built-in**  | Share state via URL params/hash out of the box.   |
