@@ -462,7 +462,7 @@ export function TodoApp() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-      <h1>Statelet-Next Todo App</h1>
+      <h1>Statelet Todo App</h1>
       
       <div style={{ marginBottom: '20px' }}>
         <input
