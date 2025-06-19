@@ -265,7 +265,7 @@ const searchInput = compose(
 ## Functional Style
 
 ```typescript
-import { enhance } from 'statelet-next';
+import { enhance } from 'statelet';
 
 // Create reusable enhancer combinations
 const createPersistedUrlState = enhance(
@@ -289,8 +289,8 @@ const userState = createPersistedUrlState(
 ### Search/Filter Component
 
 ```typescript
-import { state, compose, withUrlParams, withDebounce } from 'statelet-next';
-import { useStatelet } from 'statelet-next/react';
+import { state, compose, withUrlParams, withDebounce } from 'statelet';
+import { useStatelet } from 'statelet/react';
 
 const searchState = compose(
   state({
@@ -344,7 +344,7 @@ function ProductSearch() {
 ### User Preferences Dashboard
 
 ```typescript
-import { state, compose, withStorage, withEffect } from 'statelet-next';
+import { state, compose, withStorage, withEffect } from 'statelet';
 
 const userPrefs = compose(
   state({
