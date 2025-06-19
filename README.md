@@ -1,18 +1,18 @@
-# 🎯 statelet
+# ⧈ statelet
 
-> Dead simple state management - reactive, composable, shareable
+> Dead simple state management - type safe, reactive, composable
 
 ## Why statelet?
 
-| ✨ Feature | 📝 Description |
-|-----------|----------------|
-| **Dead Simple** | Just `{ get(), set(), subscribe() }` - that's it! |
-| **Composable** | Mix and match enhancers like Lego blocks |  
-| **URL Sync Built-in** | Share state via URL params/hash out of the box |
-| **Type Inferred** | Full TypeScript support |
-| **Framework Agnostic** | Works anywhere - React, Vue, vanilla JS |
-| **SSR Safe** | Works on server and client seamlessly |
-| **React Optional** | React integration available but not required |
+| Feature                | Description                                       |
+|----------------------------------------------------------------------------|
+| **Dead Simple**.       | Just `{ get(), set(), subscribe() }` - that's it! |
+| **Composable**         | Mix and match enhancers like Lego blocks          |  
+| **URL Sync Built-in**  | Share state via URL params/hash out of the box.   |
+| **Type Inferred**      | Full TypeScript support                           |
+| **Framework Agnostic** | Works anywhere - React, Vue, vanilla JS           |
+| **SSR Safe**.          | Works on server and client seamlessly             |
+| **React Optional**     | React integration available but not required      |
 
 ## Quick Start
 
@@ -371,17 +371,6 @@ function PreferencesForm() {
 
 ## Comparison
 
-### vs Original Statelet
-
-| Feature | Original | Next |
-|---------|----------|------|
-| API | `getState()` / `setState()` | `get()` / `set()` |
-| Composition | `composeStatelet()` | `compose()` |
-| Functional updates | ❌ | ✅ `set(prev => ...)` |
-| kvkit integration | Partial | Full |
-| Bundle size | Larger | Smaller |
-| DX | Good | Excellent |
-
 ### vs Zustand
 
 ```typescript
@@ -391,7 +380,7 @@ const useStore = create(set => ({
   increment: () => set(state => ({ count: state.count + 1 }))
 }));
 
-// statelet-next
+// statelet
 const counter = state({ count: 0 });
 const [count, setCount] = useStatelet(counter);
 setCount(prev => ({ count: prev.count + 1 }));
@@ -407,7 +396,7 @@ const store = configureStore({
   }
 });
 
-// statelet-next  
+// statelet
 const search = compose(
   state({ query: '', results: [] }),
   withUrlParams()
@@ -416,7 +405,7 @@ const search = compose(
 
 ## Built on kvkit
 
-statelet-next leverages [kvkit](https://github.com/cr0w-digital/kvkit) for all URL parameter encoding/decoding, providing:
+statelet leverages [kvkit](https://github.com/cr0w-digital/kvkit) for all URL parameter encoding/decoding, providing:
 
 - ✅ **Robust serialization** - Handles complex data types
 - ✅ **Multiple strategies** - flat, JSON, prefixed codecs
@@ -424,67 +413,6 @@ statelet-next leverages [kvkit](https://github.com/cr0w-digital/kvkit) for all U
 - ✅ **Edge case handling** - Malformed URLs, encoding issues
 - ✅ **Battle tested** - Used in production
 
-## Migration from statelet
-
-```typescript
-// Before (statelet)
-const taskStatelet = composeStatelet(
-  createStatelet({ filter: "" }),
-  withSchema(fromValibot(taskSchema)),
-  withHashParam(),
-  withEffect(console.log),
-);
-
-// After (statelet-next)
-const taskState = compose(
-  state({ filter: "" }),
-  withValidation({ parse: taskSchema.parse }),
-  withHashParams(),
-  withEffect(console.log),
-);
-
-// React hook usage stays the same!
-const [task, setTask] = useStatelet(taskState);
-```
-
-## 🎉 Implementation Status
-
-**statelet-next** is now fully implemented and tested! Here's what's available:
-
-### ✅ Core Features
-- [x] Simple `state()` container with `get/set/subscribe`
-- [x] Functional composition with `compose()`
-- [x] Full TypeScript support with perfect inference
-- [x] Comprehensive test suite (15 tests passing)
-
-### ✅ Enhancers
-- [x] `withStorage()` - localStorage persistence
-- [x] `withUrlParams()` - URL search parameter sync
-- [x] `withHashParams()` - URL hash parameter sync  
-- [x] `withEffect()` - side effects with prev/current values
-- [x] `withDebounce()` - debounced state updates
-- [x] `withValidation()` - schema validation
-
-### ✅ React Integration
-- [x] `useStatelet()` hook returning `[value, setter]`
-- [x] Automatic re-renders on state changes
-- [x] Proper cleanup on unmount
-- [x] SSR safe
-
-### ✅ Examples
-- [x] Basic counter with localStorage (`examples/basic.ts`)
-- [x] React Todo app with URL sync (`examples/react-todo.tsx`)
-
-### 🚀 Ready to Use
-
-```bash
-cd statelet-next
-npm test     # Run tests (all passing!)
-npm run build # Build the library
-```
-
-The new API is **much simpler** than the original statelet while maintaining all the power through composable enhancers built on kvkit's robust codec system.
-
 ## License
 
-MIT - Build amazing things! 🚀
+MIT
