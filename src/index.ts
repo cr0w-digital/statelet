@@ -77,3 +77,6 @@ export function compose<T>(
 export function enhance<T>(...enhancers: Enhancer<any>[]) {
   return (base: State<T>): State<T> => compose(base, ...enhancers);
 }
+
+// Export all enhancers from the enhancers module
+export * from './enhancers';
